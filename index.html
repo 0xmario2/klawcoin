@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KLAW - Giving back to the claw.</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#fff;font-family:'Syne',sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* LOADING */
+#loading{position:fixed;inset:0;background:#0a0a0a;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s}
+.claw-spin{width:90px;height:90px;background:#ff0a0a;border-radius:40% 40% 20% 20%;clip-path:ellipse(45% 55% at 50% 50%);position:relative;animation:spin 1.2s linear infinite;box-shadow:0 0 30px #ff0a0a}
+.claw-spin:before{content:'';position:absolute;inset:15%;background:#ff1a1a;border-radius:50%;border:3px solid #000}
+@keyframes spin{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(.9)}100%{transform:rotate(360deg) scale(1)}}
+.load-text{margin-top:30px;font-family:'Space Mono';letter-spacing:4px;font-size:14px;color:#888}
+
+/* HEADER - EXACT LOBIN */
+.header{position:fixed;top:0;width:100%;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;z-index:100;background:linear-gradient(to bottom, #0a0a0a 0%, transparent 100%)}
+.logo{font-size:26px;font-weight:800;color:#ff0a0a;letter-spacing:-1px}
+.logo span{font-size:10px;position:relative;top:-12px}
+.nav-btns{display:flex;gap:8px;align-items:center}
+.btn-pill{padding:8px 18px;border-radius:100px;font-family:'Space Mono';font-weight:700;font-size:13px;border:1.5px solid #333;background:transparent;color:#fff;cursor:pointer;transition:.2s}
+.btn-pill.lime{border-color:#c8ff00;color:#c8ff00}
+.btn-pill.lime-fill{background:#c8ff00;color:#000;border-color:#c8ff00;box-shadow:0 0 20px #c8ff0055}
+.btn-pill:hover{transform:scale(1.05)}
+
+/* STARS CANVAS */
+#stars{position:fixed;inset:0;pointer-events:none;z-index:1}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding-top:90px;z-index:2}
+.lobin-title{font-size:84px;font-weight:800;color:#ff0a0a;line-height:.9;letter-spacing:-3px;position:relative;text-align:center}
+.lobin-title i{font-style:normal;position:relative}
+.lobin-title i:after{content:'🦞';position:absolute;top:-18px;right:-8px;font-size:24px;transform:rotate(15deg)}
+.sub{margin-top:10px;font-size:18px;color:#ddd;font-weight:700;letter-spacing:-.5px}
+
+/* LOBSTER STAGE - SCROLL EMERGE */
+.stage{position:relative;height:300vh;width:100%;z-index:2}
+.sticky{position:sticky;top:0;height:100vh;width:100%;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.water-wrap{position:absolute;bottom:0;width:100%;height:52%;background:linear-gradient(to bottom, #111827 0%, #020205 100%);border-top:1px solid #1a1a1a}
+.lobster{position:absolute;bottom:18%;left:50%;transform:translateX(-50%) translateY(65%);transition:transform .1s linear;width:420px;max-width:88vw;will-change:transform;filter:drop-shadow(0 0 40px rgba(255,10,10,.4))}
+.lobster img{width:100%;display:block}
+.scroll-hint{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;opacity:.8}
+.ripple{width:80px;height:24px;border:1px solid #333;border-radius:50%;position:relative}
+.ripple:before{content:'🦞';position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:18px}
+.scroll-txt{font-family:'Space Mono';font-size:12px;letter-spacing:4px;color:#888}
+
+/* SECTIONS */
+.meet{height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;z-index:3;position:relative;background:#0a0a0a}
+.meet h2{font-size:42px;font-weight:800}
+.meet h2 span{color:#c8ff00}
+.join{padding:80px 20px;text-align:center;z-index:3;position:relative;background:#0a0a0a;border-top:1px solid #111}
+.join h2{font-size:38px;margin-bottom:12px}
+.join p{color:#888;font-family:'Space Mono';font-size:14px;line-height:1.6;max-width:520px;margin:0 auto 24px}
+.join p b{color:#c8ff00;text-decoration:underline;font-weight:400}
+.join-actions{display:flex;flex-direction:column;gap:10px;align-items:center;max-width:420px;margin:0 auto}
+</style>
+</head>
+<body>
+
+<div id="loading">
+  <div class="claw-spin"></div>
+  <div class="load-text">LOADING KLAW...</div>
+</div>
+
+<canvas id="stars"></canvas>
+
+<header class="header">
+  <div class="logo">klaw<span>🦞</span></div>
+  <div class="nav-btns">
+    <button class="btn-pill lime" onclick="document.getElementById('pfp').scrollIntoView({behavior:'smooth'})">PFP</button>
+    <button class="btn-pill" onclick="document.querySelector('.join').scrollIntoView({behavior:'smooth'})">JOIN</button>
+    <a href="https://app.torchpad.fun/trade/robinhood/0x7699c5e009a90d64b23c6d707b9714f164f91111" target="_blank" class="btn-pill lime-fill">BUY $KLAW</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="lobin-title">klaw</div>
+  <div class="sub">Giving back to the claw.</div>
+</section>
+
+<div class="stage" id="stage">
+  <div class="sticky">
+    <div class="water-wrap"></div>
+    <div class="lobster" id="lobster">
+      <!-- PAKE GAMBAR BARU LU ATAU YANG INI HD -->
+      <img src="https://iili.io/nPZuanf.jpg" id="lobsterImg" style="border-radius:20px 20px 0 0" alt="KLAW">
+      <!-- FALLBACK EMOJI LOBSTER IF IMG FAIL -->
+      <div style="font-size:120px;text-align:center;display:none" id="fallback">🦞</div>
+    </div>
+    <div class="scroll-hint" id="scrollHint">
+      <div class="ripple"></div>
+      <div class="scroll-txt">SCROLL</div>
+      <div style="font-size:12px;color:#444">▼</div>
+    </div>
+  </div>
+</div>
+
+<section class="meet" id="pfp">
+  <h2>Meet <span>KLAW.</span></h2>
+  <div style="margin-top:20px;width:280px;border-radius:20px;overflow:hidden;border:1px solid #1a1a1a">
+    <img src="https://iili.io/nPZ5gA7.jpg" style="width:100%;display:block">
+  </div>
+  <p style="color:#666;font-family:'Space Mono';margin-top:16px;font-size:13px">The claw that grabs everything. Pure meme, pure cult.</p>
+</section>
+
+<section class="join">
+  <h2>Join the movement.</h2>
+  <p>The claw is the whole roadmap. Follow KLAW, <b>wear the PFP</b>, <b>make the memes</b>, bring your friends.</p>
+  <div class="join-actions">
+    <a href="https://x.com/klawcoin" target="_blank" class="btn-pill lime-fill" style="width:100%;text-align:center;padding:14px">FOLLOW ON X</a>
+    <a href="https://app.torchpad.fun/trade/robinhood/0x7699c5e009a90d64b23c6d707b9714f164f91111" target="_blank" class="btn-pill lime-fill" style="width:100%;text-align:center;padding:14px;background:#ff0a0a;color:#000;border-color:#ff0a0a">BUY $KLAW ON TORCHPAD</a>
+    <button class="btn-pill lime" style="width:100%;padding:12px" onclick="alert('PFP Builder coming - use your KLAW images')">PFP BUILDER: MAKE YOUR KLAW</button>
+    <button class="btn-pill" style="width:100%;padding:12px" onclick="alert('MEME MAKER - caption your KLAW')">MEME MAKER: CAPTION KLAW</button>
+    <button class="btn-pill" style="width:100%;padding:12px" onclick="copyCA()">MEME KIT: COPY CA • 0x7699...1111</button>
+  </div>
+  <div style="margin-top:30px;color:#333;font-family:'Space Mono';font-size:11px">© 2026 $KLAW • a community meme on Robinhood Chain • not financial advice<br><br>
+  <a href="https://x.com/klawcoin" style="color:#555;text-decoration:underline">x.com/klawcoin</a> • <a href="https://app.torchpad.fun/trade/robinhood/0x7699c5e009a90d64b23c6d707b9714f164f91111" style="color:#555;text-decoration:underline">torchpad.fun/klaw</a>
+  </div>
+</section>
+
+<script>
+// STARS
+const c=document.getElementById('stars'),x=c.getContext('2d');function rs(){c.width=innerWidth;c.height=innerHeight}rs();window.addEventListener('resize',rs);
+let stars=[];for(let i=0;i<150;i++)stars.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight*0.7,r:Math.random()*1.5,tw:Math.random()});
+function draw(){x.clearRect(0,0,c.width,c.height);stars.forEach(s=>{s.tw+=0.02;x.globalAlpha=0.3+Math.sin(s.tw)*0.7;x.fillStyle='#fff';x.beginPath();x.arc(s.x,s.y,s.r,0,Math.PI*2);x.fill()});requestAnimationFrame(draw)}draw();
+
+// LOADING FADE
+setTimeout(()=>{document.getElementById('loading').style.opacity='0';setTimeout(()=>document.getElementById('loading').remove(),600)},1400);
+
+// LOBSTER SCROLL EMERGE - 99% LOBIN LOGIC
+const lobster=document.getElementById('lobster'), stage=document.getElementById('stage'), hint=document.getElementById('scrollHint'), img=document.getElementById('lobsterImg');
+let images=["https://iili.io/nPZuanf.jpg","https://iili.io/nPZ5gA7.jpg","https://iili.io/nPZaV9V.jpg","https://iili.io/nPZlUQt.jpg"];
+window.addEventListener('scroll',()=>{
+  const rect=stage.getBoundingClientRect();
+  const prog=Math.min(Math.max(-rect.top / (rect.height - innerHeight),0),1);
+  // 0 = eyes only, 1 = full body
+  const y=65 - prog*70;
+  const scale=0.8 + prog*0.4;
+  lobster.style.transform=`translateX(-50%) translateY(${y}%) scale(${scale})`;
+  hint.style.opacity=1-prog*2;
+  // swap images as emerge like lobin
+  if(prog>0.6) img.src=images[1];
+  if(prog>0.85) img.src=images[2];
+});
+
+// fallback if image fail
+img.onerror=()=>{img.style.display='none';document.getElementById('fallback').style.display='block'}
+
+function copyCA(){navigator.clipboard.writeText('0x7699c5E009A90d64B23c6D707b9714f164F91111');alert('CA COPIED: 0x7699c5E009A90d64B23c6D707b9714f164F91111')}
+</script>
+</body>
+</html>
