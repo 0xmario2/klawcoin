@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KLAW</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050508;color:#fff;font-family:Arial Black, sans-serif;overflow-x:hidden}
+.header{position:fixed;top:0;width:100%;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;z-index:99;background:linear-gradient(#050508 60%, transparent)}
+.logo{color:#ff0a0a;font-weight:900;font-size:26px;letter-spacing:-1px}
+.btns{display:flex;gap:6px;align-items:center}
+.b{padding:7px 14px;border-radius:100px;font-size:12px;font-weight:800;border:1.5px solid #222;background:transparent;color:#fff;cursor:pointer}
+.b.lime{border-color:#C8FF00;color:#C8FF00}
+.b.fill{background:#C8FF00;color:#000;border-color:#C8FF00}
+#loading{position:fixed;inset:0;background:#050508;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.claw{width:80px;height:80px;background:#ff0a0a;border-radius:50% 50% 30% 30%;animation:spin 1s linear infinite}
+@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+.hero{height:42vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+.t{font-size:78px;color:#ff0a0a;font-weight:900;letter-spacing:-2px;line-height:1}
+.sub{color:#aaa;font-size:16px;margin-top:6px;font-weight:600;font-family:monospace}
+.stage{height:300vh;position:relative}
+.sticky{position:sticky;top:0;height:100vh;overflow:hidden;background:#050508}
+.stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1px, transparent 1px);background-size:70px 70px;opacity:.25}
+.water{position:absolute;bottom:0;width:100%;height:48%;background:linear-gradient(#101624,#020205);border-top:1px solid #222;z-index:2}
+.wrap{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:560px;max-width:96vw;height:85vh;display:flex;align-items:flex-end;justify-content:center;z-index:3}
+.lob{width:100%;transform:translateY(80%);will-change:transform;filter:drop-shadow(0 0 40px #ff0a0a)}
+.hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:6px;transition:.3s}
+.rip{width:68px;height:20px;border:1px solid #444;border-radius:50%}
+</style>
+</head>
+<body>
+<div id="loading"><div class="claw"></div><div style="margin-top:20px;font-family:monospace;letter-spacing:4px;color:#666;font-size:12px">LOADING KLAW...</div></div>
+
+<div class="header">
+<div class="logo">klaw</div>
+<div class="btns">
+<div class="b lime">PFP</div><div class="b">JOIN</div>
+<a href="https://app.torchpad.fun/trade/robinhood/0x7699c5e009a90d64b23c6d707b9714f164f91111" target="_blank" class="b fill" style="text-decoration:none">BUY $KLAW</a>
+</div>
+</div>
+
+<div class="hero"><div class="t">klaw</div><div class="sub">Giving back to the claw.</div></div>
+
+<div class="stage" id="stage">
+<div class="sticky">
+<div class="stars"></div>
+<div class="water"></div>
+<div class="wrap"><img class="lob" id="lob" src="https://iili.io/ns7pnfV.jpg"></div>
+<div class="hint" id="hint"><div class="rip"></div><div style="font-size:11px;letter-spacing:4px;color:#777;font-family:monospace">SCROLL</div></div>
+</div>
+</div>
+
+<div style="min-height:100vh;background:#050508;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px">
+<h2 style="font-size:38px">Meet <span style="color:#C8FF00">KLAW.</span></h2>
+<img src="https://iili.io/nsY90AX.jpg" style="width:300px;border-radius:16px;margin-top:20px;border:1px solid #222">
+<p style="color:#666;font-family:monospace;margin-top:12px;font-size:13px">Pumping with the claw.</p>
+</div>
+
+<div style="padding:60px 20px;text-align:center;background:#050508;border-top:1px solid #111">
+<h2 style="font-size:32px">Join the movement.</h2>
+<p style="color:#888;font-family:monospace;font-size:13px;max-width:480px;margin:12px auto 20px">Follow, make memes, wear the PFP. The claw is the roadmap.</p>
+<a href="https://x.com/klawcoin" target="_blank" style="display:block;max-width:380px;margin:10px auto;padding:14px;background:#C8FF00;color:#000;border-radius:100px;font-weight:900;text-decoration:none;text-align:center">FOLLOW ON X</a>
+<a href="https://app.torchpad.fun/trade/robinhood/0x7699c5e009a90d64b23c6d707b9714f164f91111" target="_blank" style="display:block;max-width:380px;margin:10px auto;padding:14px;background:#ff0a0a;color:#000;border-radius:100px;font-weight:900;text-decoration:none;text-align:center">BUY $KLAW</a>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:380px;margin:20px auto">
+<img src="https://iili.io/nsYJoQa.jpg" style="width:100%;border-radius:12px;border:1px solid #222">
+<img src="https://iili.io/nsYdaSV.jpg" style="width:100%;border-radius:12px;border:1px solid #222">
+</div>
+<div style="color:#333;font-family:monospace;font-size:10px;margin-top:20px">0x7699c5E009A90d64B23c6D707b9714f164F91111</div>
+</div>
+
+<script>
+setTimeout(()=>{document.getElementById('loading').style.opacity='0';setTimeout(()=>document.getElementById('loading').remove(),500)},1200);
+const stage=document.getElementById('stage'),lob=document.getElementById('lob'),hint=document.getElementById('hint');
+const pics=["https://iili.io/ns7pnfV.jpg","https://iili.io/nsY90AX.jpg","https://iili.io/nsYJoQa.jpg","https://iili.io/nsYdaSV.jpg"];
+addEventListener('scroll',()=>{
+  const r=stage.getBoundingClientRect();
+  const p=Math.min(Math.max(-r.top/(r.height-innerHeight),0),1);
+  lob.style.transform=`translateY(${80-p*95}%) scale(${0.8+p*0.3})`;
+  hint.style.opacity=1-p*3;
+  if(p>0.25) lob.src=pics[0];
+  if(p>0.55) lob.src=pics[1];
+  if(p>0.75) lob.src=pics[2];
+  if(p>0.9) lob.src=pics[3];
+});
+</script>
+</body>
+</html>
