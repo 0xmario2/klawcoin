@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>$KLAW - JUST KLAW IT</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;color:#fff;font-family:'Space Grotesk',sans-serif;overflow-x:hidden}
+h1,h2{font-family:'Bebas Neue';letter-spacing:1px}
+a{text-decoration:none;color:inherit}
+.glow{filter:drop-shadow(0 0 25px #ff0a0a)}
+.btn-red{background:#ff0a0a;color:#000;font-weight:900;padding:16px 36px;border-radius:100px;display:inline-block;transition:.2s;box-shadow:0 0 25px #ff0a0a;cursor:pointer;border:none;font-family:'Space Grotesk';font-size:15px}
+.btn-red:hover{transform:scale(1.05);box-shadow:0 0 45px #ff0a0a}
+.btn-ghost{border:1px solid #222;color:#fff;padding:16px 32px;border-radius:100px;display:inline-block;font-weight:700;transition:.2s}
+.btn-ghost:hover{border-color:#ff0a0a;color:#ff0a0a}
+.nav{position:fixed;top:0;width:100%;padding:16px 6%;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.8);backdrop-filter:blur(12px);border-bottom:1px solid #111;z-index:100}
+.hero{padding:140px 6% 80px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;align-items:center;min-height:100vh}
+@media(max-width:900px){.hero{grid-template-columns:1fr;text-align:center}.hero div:last-child{order:-1}}
+.ca-box{background:#0a0a0a;border:1px solid #1a1a1a;border-radius:16px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:24px;max-width:520px;cursor:pointer}
+.ca-box:hover{border-color:#ff0a0a}
+.card{background:linear-gradient(180deg,#0a0a0a,#000);border:1px solid #1a1a1a;border-radius:20px;padding:28px}
+.marquee{background:#ff0a0a;color:#000;font-family:'Bebas Neue';font-size:26px;padding:12px 0;white-space:nowrap;overflow:hidden}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div style="font-family:'Bebas Neue';font-size:32px;letter-spacing:2px;display:flex;align-items:center;gap:10px">
+    <div style="width:32px;height:32px;background:#ff0a0a;border-radius:50%;box-shadow:0 0 15px #ff0a0a"></div> $KLAW
+  </div>
+  <div style="display:flex;gap:12px;align-items:center">
+    <a href="https://x.com/klawcoin" target="_blank" class="btn-ghost" style="padding:10px 20px;font-size:14px">TWITTER</a>
+    <a href="https://robinhoodchain.blockscout.com/tx/0xfb059996a9e3b736e7982432749fce72141b0fc6ac5692970db2115d48e6b83c" target="_blank" class="btn-red" style="padding:10px 22px;font-size:14px">EXPLORER</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div>
+    <div style="color:#ff0a0a;font-weight:700;letter-spacing:4px;font-size:12px;margin-bottom:16px">ROBINHOOD CHAIN • MEMECOIN</div>
+    <h1 style="font-size:clamp(80px,11vw,150px);line-height:0.85">JUST<br><span style="color:#ff0a0a;text-shadow:0 0 40px #ff0a0a">KLAW</span> IT.</h1>
+    <p style="color:#777;font-size:18px;margin:24px 0;max-width:480px;line-height:1.5">
+      The red claw that grabs everything. No roadmap. No utility. Just pure meme energy. Once you get KLAWED, you never leave.
+    </p>
+    
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="https://torchpad.fun" target="_blank" class="btn-red">BUY $KLAW</a>
+      <a href="https://x.com/klawcoin" target="_blank" class="btn-ghost">X / TWITTER</a>
+    </div>
+
+    <!-- CA BOX - CLICKABLE COPY -->
+    <div class="ca-box" onclick="copyCA()">
+      <div>
+        <div style="font-size:10px;color:#555;letter-spacing:2px">CONTRACT ADDRESS</div>
+        <div style="font-size:13px;color:#fff;font-weight:700;word-break:break-all" id="caText">0x7699c5E009A90d64B23c6D707b9714f164F91111</div>
+      </div>
+      <div style="background:#111;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:700" id="copyBtn">COPY</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#444">Click to copy • Robinhood Chain</div>
+  </div>
+
+  <div style="text-align:center">
+    <!-- GANTI SRC INI DENGAN logo.png LU -->
+    <img src="logo.png" onerror="this.src='https://via.placeholder.com/500x500/000000/ff0a0a?text=$KLAW'" class="glow" style="width:100%;max-width:520px;border-radius:30px;border:1px solid #111">
+    <div style="margin-top:16px;color:#222;font-size:11px;letter-spacing:6px">RED GLOSSY • CHIBI CLAW • OFFICIAL</div>
+  </div>
+</section>
+
+<div class="marquee">
+  <marquee behavior="scroll" direction="left" scrollamount="12"> $KLAW • JUST KLAW IT • $KLAW • FEEL THE KLAW • $KLAW • JUST KLAW IT • $KLAW • FEEL THE KLAW • $KLAW • JUST KLAW IT • $KLAW • </marquee>
+</div>
+
+<section style="padding:80px 6%;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center">
+  <div class="card glow" style="padding:0;overflow:hidden;border-radius:24px">
+    <!-- GANTI SRC INI DENGAN banner.png LU -->
+    <img src="banner.png" onerror="this.src='https://via.placeholder.com/1200x600/000000/ff0a0a?text=CREATION+OF+KLAW'" style="width:100%;display:block">
+  </div>
+  <div>
+    <h2 style="font-size:64px;line-height:0.9">CREATION OF<br><span style="color:#ff0a0a">$KLAW</span></h2>
+    <p style="color:#666;margin:20px 0;line-height:1.6;max-width:500px">
+      Man reaches for God. God reaches back with a claw. 
+      <br><br>
+      That’s the lore. One touch and you’re KLAWED. No escape. 
+      Inspired by Michelangelo, built for degens.
+    </p>
+    <a href="https://robinhoodchain.blockscout.com/tx/0xfb059996a9e3b736e7982432749fce72141b0fc6ac5692970db2115d48e6b83c" target="_blank" style="color:#ff0a0a;font-weight:700;border-bottom:1px solid #ff0a0a;padding-bottom:2px">VIEW DEPLOY TX →</a>
+  </div>
+</section>
+
+<section style="padding:20px 6% 100px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+  <a href="https://x.com/klawcoin" target="_blank" class="card" style="text-align:center">
+    <div style="font-size:32px">𝕏</div>
+    <h2 style="margin-top:10px">TWITTER</h2>
+    <p style="color:#555;margin-top:6px;font-size:13px">@klawcoin - Follow for KLAW</p>
+  </a>
+  <a href="https://robinhoodchain.blockscout.com/tx/0xfb059996a9e3b736e7982432749fce72141b0fc6ac5692970db2115d48e6b83c" target="_blank" class="card" style="text-align:center;border-color:#ff0a0a22">
+    <div style="font-size:32px">🔍</div>
+    <h2 style="margin-top:10px;color:#ff0a0a">BLOCKSCOUT</h2>
+    <p style="color:#555;margin-top:6px;font-size:13px">Verified Transaction</p>
+  </a>
+  <div class="card" style="text-align:center">
+    <div style="font-size:32px">🦞</div>
+    <h2 style="margin-top:10px">0% TAX</h2>
+    <p style="color:#555;margin-top:6px;font-size:13px">1B Supply • LP Locked</p>
+  </div>
+</section>
+
+<footer style="border-top:1px solid #111;padding:30px 6%;display:flex;justify-content:space-between;color:#333;font-size:12px;letter-spacing:1px">
+  <span>© 2026 $KLAW - JUST KLAW IT</span>
+  <span><a href="https://x.com/klawcoin" target="_blank" style="color:#555">X.COM/KLAWCOIN</a> • ROBINHOOD CHAIN</span>
+</footer>
+
+<script>
+function copyCA(){
+  const ca = "0x7699c5E009A90d64B23c6D707b9714f164F91111";
+  navigator.clipboard.writeText(ca);
+  const btn = document.getElementById('copyBtn');
+  btn.innerText = "COPIED!";
+  btn.style.background = "#ff0a0a";
+  btn.style.color = "#000";
+  setTimeout(()=>{
+    btn.innerText = "COPY";
+    btn.style.background = "#111";
+    btn.style.color = "#fff";
+  },1500);
+}
+</script>
+</body>
+</html>
