@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KLAW</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050508;color:#fff;font-family:Arial Black,sans-serif}
+.header{position:fixed;top:0;width:100%;height:56px;padding:0 12px;display:flex;justify-content:space-between;align-items:center;z-index:99;background:rgba(5,5,8,.9);backdrop-filter:blur(10px)}
+.logo{color:#FF0A0A;font-size:30px;font-weight:900;letter-spacing:-1px}
+.b{padding:8px 14px;border-radius:100px;font-size:11px;font-weight:900;border:1.5px solid #222;background:#0A0A0F;color:#fff}
+.b.lime{border-color:#D9FF00;color:#D9FF00}
+.b.fill{background:#D9FF00;color:#000;border-color:#D9FF00}
+.hero{text-align:center;padding-top:90px}
+.t{font-size:88px;color:#FF0A0A;line-height:.9;letter-spacing:-3px}
+.sub{font-family:monospace;color:#888;margin-top:8px;font-size:14px}
+.stage{height:260vh;position:relative}
+.sticky{position:sticky;top:56px;height:calc(100vh - 56px);overflow:hidden;background:radial-gradient(ellipse at bottom, #0F1A33 0%, #050508 70%)}
+.stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1px, transparent 1px);background-size:90px 90px;opacity:.2}
+.water{position:absolute;bottom:0;width:100%;height:50%;background:linear-gradient(#122040,#020205);border-top:1px solid #1E2A4A;z-index:2}
+.lob-wrap{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:680px;max-width:100vw;height:90%;display:flex;align-items:flex-end;justify-content:center;z-index:3}
+.lob{width:100%;transform:translateY(60%);will-change:transform;filter:drop-shadow(0 0 40px #FF0A0A)}
+.scroll-hint{position:absolute;top:20px;left:50%;transform:translateX(-50%);z-index:4;color:#D9FF00;font-family:monospace;font-size:11px;letter-spacing:1px;animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+</style>
+</head>
+<body>
+<div class="header">
+<div class="logo">klaw</div>
+<div style="display:flex;gap:6px">
+<div class="b lime">PFP</div><div class="b">JOIN</div>
+<a href="#" class="b fill" style="text-decoration:none">BUY $KLAW</a>
+</div>
+</div>
+
+<div class="hero">
+<div class="t">klaw</div>
+<div class="sub">Giving back to the claw.</div>
+</div>
+
+<!-- INI TEMPAT PANAH HIJAU LU - ANIMASI DI DEPAN -->
+<div class="stage" id="stage">
+<div class="sticky">
+<div class="scroll-hint">SCROLL TO AWAKEN THE KLAW ↓</div>
+<div class="stars"></div>
+<div class="water"></div>
+<div class="lob-wrap"><img id="lob" class="lob" src="https://iili.io/ns7pnfV.jpg"></div>
+</div>
+</div>
+
+<div style="padding:40px 16px;background:#050508;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div style="border:1px solid #D9FF00;border-radius:16px;padding:14px"><div style="color:#D9FF00;font-size:12px">WHAT IS $KLAW?</div><div style="font-family:monospace;font-size:11px;color:#888;margin-top:6px">KLAW is the claw that gives back. No tax, no nonsense.</div><img src="https://iili.io/nsY90AX.jpg" style="width:100%;border-radius:10px;margin-top:10px"></div>
+<div style="border:1px solid #222;border-radius:16px;padding:14px"><div style="color:#FF0A0A;font-size:16px">Meet KLAW</div><div style="font-family:monospace;font-size:11px;color:#fff;margin-top:6px">• 100% Community<br>• Liquidity Burned<br>• Rewards for Holders</div><img src="https://iili.io/nsYJoQa.jpg" style="width:100%;border-radius:10px;margin-top:10px"></div>
+</div>
+
+<script>
+const stage=document.getElementById('stage'), lob=document.getElementById('lob');
+const imgs=["https://iili.io/ns7pnfV.jpg","https://iili.io/nsY90AX.jpg","https://iili.io/nsYJoQa.jpg","https://iili.io/nsYdaSV.jpg"];
+window.addEventListener('scroll',()=>{
+const r=stage.getBoundingClientRect();
+const p=Math.min(Math.max(-r.top/(r.height-innerHeight),0),1);
+lob.style.transform=`translateY(${60-p*75}%) scale(${0.85+p*0.25})`;
+if(p<0.3) lob.src=imgs[0];
+else if(p<0.6) lob.src=imgs[1];
+else if(p<0.85) lob.src=imgs[2];
+else lob.src=imgs[3];
+},{passive:true});
+</script>
+</body>
+</html>
