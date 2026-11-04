@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KLAW</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050508;color:#fff;overflow-x:hidden}
+.header{position:fixed;top:0;width:100%;padding:12px 18px;display:flex;justify-content:space-between;z-index:100}
+.logo{color:#ff0a0a;font-weight:900;font-size:28px}
+.b{padding:8px 16px;border-radius:100px;font-size:12px;font-weight:800;border:1.5px solid #333}
+.b.lime{border-color:#C8FF00;color:#C8FF00}
+.b.fill{background:#C8FF00;color:#000;border-color:#C8FF00}
+.stage{height:250vh;position:relative}
+.sticky{position:sticky;top:0;height:100vh;overflow:hidden;background:#050508}
+.stars{position:absolute;inset:0;background-image:radial-gradient(white 1px, transparent 1px);background-size:70px 70px;opacity:.25}
+.water{position:absolute;bottom:0;width:100%;height:48%;background:linear-gradient(#101624,#020205);border-top:1px solid #222;z-index:2}
+.lobster-wrap{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:520px;max-width:95vw;height:85vh;display:flex;align-items:flex-end;justify-content:center;z-index:3}
+.lobster{width:100%;transform:translateY(85%);filter:drop-shadow(0 0 40px red)}
+.hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:4;text-align:center;transition:.3s}
+</style>
+</head>
+<body>
+<div class="header">
+<div class="logo">klaw🦞</div>
+<div style="display:flex;gap:8px">
+<div class="b lime">PFP</div><div class="b">JOIN</div>
+<a href="https://app.torchpad.fun/trade/robinhood/0x7699c5e009a90d64b23c6d707b9714f164f91111" class="b fill" style="text-decoration:none">BUY $KLAW</a>
+</div>
+</div>
+
+<div style="height:45vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-end">
+<div style="font-size:80px;font-weight:900;color:#ff0a0a">klaw</div>
+<div style="color:#aaa">Giving back to the claw.</div>
+</div>
+
+<div class="stage" id="stage">
+<div class="sticky">
+<div class="stars"></div>
+<div class="water"></div>
+<div class="lobster-wrap">
+<img class="lobster" id="lob" src="https://iili.io/nPZuanf.jpg">
+</div>
+<div class="hint" id="hint">
+<div style="width:70px;height:22px;border:1px solid #444;border-radius:50%;margin:0 auto;position:relative">🦞</div>
+<div style="font-size:11px;letter-spacing:4px;color:#888;margin-top:8px">SCROLL</div>
+</div>
+</div>
+</div>
+
+<div style="height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column">
+<h2>Meet <span style="color:#C8FF00">KLAW.</span></h2>
+<a href="https://x.com/klawcoin" style="margin-top:20px;padding:14px 30px;background:#C8FF00;color:#000;border-radius:100px;font-weight:900;text-decoration:none">FOLLOW ON X</a>
+</div>
+
+<script>
+const stage=document.getElementById('stage'),lob=document.getElementById('lob'),hint=document.getElementById('hint');
+const imgs=["https://iili.io/nPZuanf.jpg","https://iili.io/nPZ5gA7.jpg","https://iili.io/nPZaV9V.jpg","https://iili.io/nPZlUQt.jpg"];
+addEventListener('scroll',()=>{
+  const p=Math.min(Math.max(-stage.getBoundingClientRect().top/(stage.offsetHeight-innerHeight),0),1);
+  lob.style.transform=`translateY(${85-p*95}%) scale(${0.75+p*0.35})`;
+  hint.style.opacity=1-p*3;
+  if(p>0.3) lob.src=imgs[1];
+  if(p>0.6) lob.src=imgs[2];
+  if(p>0.85) lob.src=imgs[3];
+});
+</script>
+</body>
+</html>
